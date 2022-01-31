@@ -1,0 +1,8 @@
+resources:
+  topics:
+    - name: ffc-pay-event
+    - name: ffc-pay-event-projection
+  queues:
+    - name: ffc-pay-event
+  storage:
+    - name: ffcpayevent
