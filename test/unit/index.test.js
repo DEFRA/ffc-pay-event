@@ -1,4 +1,4 @@
-const processEvent = require('../../process-event')
+const processEvent = require('../../app')
 const mockContext = require('../mock-context')
 
 describe('calculation function', () => {
