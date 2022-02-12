@@ -1,5 +1,29 @@
 [
   {
+    "name": "SignalrConnectionString",
+    "value": ""
+  },
+  {
+    "name": "TableConnectionString",
+    "value": ""
+  },
+  {
+    "name": "AZURE_STORAGE_USE_CONNECTION_STRING",
+    "value": ""
+  },
+  {
+    "name": "AZURE_STORAGE_ACCOUNT_NAME",
+    "value": ""
+  },
+  {
+    "name": "AZURE_STORAGE_TABLE",
+    "value": ""
+  },
+  {
+    "name": "USE_SIGNALR",
+    "value": ""
+  },
+  {
     "name": "PAY_EVENT_TOPIC",
     "value": "ffc-pay-event"
   },
