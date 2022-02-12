@@ -2,7 +2,7 @@
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "node",
-    "AzureWebJobsStorage": "AccountName=devstoreaccount1;AccountKey=;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;",
+    "AzureWebJobsStorage": "AccountName=devstoreaccount1;AccountKey=;DefaultEndpointsProtocol=http;BlobEndpoint=http://127.0.0.1:10010/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10011/devstoreaccount1;TableEndpoint=http://127.0.0.1:10012/devstoreaccount1;",
     "AzureWebJobsAzureSBConnection": "",
     "PAY_EVENT_TOPIC": "ffc-pay-event",
     "PAY_EVENT_SUBSCRIPTION": "ffc-pay-event-response",

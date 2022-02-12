@@ -34,5 +34,9 @@
       "beforeAll",
       "afterAll"
     ]
+  },
+  "dependencies": {
+    "@azure/data-tables": "^13.0.1",
+    "@azure/identity": "^2.0.2"
   }
 }

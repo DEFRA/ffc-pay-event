@@ -1,9 +1,12 @@
+const saveEvent = require('./event')
+const sendMessage = require('./signalr')
+
 module.exports = async function (context, message) {
+  const event = message
   try {
-    const event = message
-    if (event.id !== undefined) {
-      context.bindings.outputSbTopic = event
-      context.log.info(`Published event for ${event.id}`)
+    if (event?.properties?.id !== undefined) {
+      await saveEvent(context, event)
+      sendMessage(context, event)
       context.done()
     }
   } catch (error) {

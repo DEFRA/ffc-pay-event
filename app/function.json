@@ -14,6 +14,20 @@
       "topicName": "%PAY_EVENT_PROJECTION_TOPIC%",
       "connection": "AzureWebJobsAzureSBConnection",
       "direction": "out"
+    },
+    {
+      "tableName": "%AZURE_STORAGE_TABLE%",
+      "connection": "TableConnectionString",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "serverless",
+      "connectionStringSetting": "SignalrConnectionString",
+      "direction": "out"
     }
   ]
 }
