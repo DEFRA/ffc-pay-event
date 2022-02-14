@@ -27,7 +27,7 @@ const saveEvent = async (context, event) => {
 
   context.bindings.tableBinding = []
   context.bindings.tableBinding.push(eventLog)
-
+  console.log('createProjection', createProjection)
   return createProjection
 }
 

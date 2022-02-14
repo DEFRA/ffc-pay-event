@@ -5,3 +5,4 @@ helm/**/*.lock
 .vscode
 local.settings.json
 .npm
+settings.json
