@@ -48,7 +48,7 @@ azure CLI command
 ```
 az login
 
-az functionapp config appsettings set --name "$FUNCTION_APP_NAME" --resource-group "$RESOURCE_GROUP" --settings settings.json
+az functionapp config appsettings set --name "$FUNCTION_APP_NAME" --resource-group "$RESOURCE_GROUP" --settings @settings.json
 ```
 
 ## License
