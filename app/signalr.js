@@ -1,7 +1,5 @@
-const useSignalr = process.env.USE_SIGNALR
-
 const sendMessage = (context, message) => {
-  if (useSignalr) {
+  if (process.env.USE_SIGNALR) {
     context.bindings.signalRMessages = [{
       target: 'payEvent',
       arguments: [message]

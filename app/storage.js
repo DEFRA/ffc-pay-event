@@ -23,10 +23,10 @@ const initialiseTable = async () => {
   tableInitialised = true
 }
 
-const queryEntities = async (partitionKey, id) => {
+const queryEntities = async (partitionKey, rowKey) => {
   tableInitialised ?? await initialiseTable()
   const events = []
-  const eventResults = tableClient.listEntities({ queryOptions: { filter: odata`PartitionKey eq ${partitionKey} and RowKey eq ${id}` } })
+  const eventResults = tableClient.listEntities({ queryOptions: { filter: odata`PartitionKey eq ${partitionKey} and RowKey eq ${rowKey}` } })
   for await (const event of eventResults) {
     events.push(event)
   }

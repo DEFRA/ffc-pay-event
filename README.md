@@ -24,6 +24,28 @@ completed, specifically for
 To start the function app run `func start` or `npm run start` (which just runs
 `func start`).
 
+To start the function app tests `npm run test`.
+
+## Service Bus
+
+### Example event message
+
+```
+{
+	"name": "Create Invoice",
+	"properties": {
+		"id": "1234567890",
+		"checkpoint": "acr-test-log-web",
+		"status": "in progress",
+		"action": {
+			"type": "create",
+			"message": "Invoice created",
+			"timestamp": "17/02/2022"
+		}
+	}
+}
+```
+
 ## Configuration - Application Settings
 
 Currently the deployment of application settings is manual and can be editted in either the Azure portal or via the Azure CLI

@@ -4,7 +4,7 @@ const queryEntities = require('./storage')
 const saveEvent = async (context, event) => {
   const raisedEvent = event.properties
   const timespan = new Date(raisedEvent.action.timestamp).getTime()
-  const createProjection = checkCreateProjection(context, raisedEvent)
+  const createProjection = await checkCreateProjection(context, raisedEvent)
 
   const partitionKey = raisedEvent.id.toString()
   let rowKey = `${raisedEvent.id}_${timespan}`
@@ -27,8 +27,6 @@ const saveEvent = async (context, event) => {
 
   context.bindings.tableBinding = []
   context.bindings.tableBinding.push(eventLog)
-  console.log('createProjection', createProjection)
-  return createProjection
 }
 
 module.exports = saveEvent
