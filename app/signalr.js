@@ -7,4 +7,4 @@ const sendMessage = (context, message) => {
   }
 }
 
-module.exports = sendMessage
+module.exports = { sendMessage }

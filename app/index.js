@@ -1,6 +1,6 @@
-const saveEvent = require('./event')
-const sendMessage = require('./signalr')
-const validateEvent = require('./event-schema')
+const { saveEvent } = require('./event')
+const { sendMessage } = require('./signalr')
+const { validateEvent } = require('./event-schema')
 
 module.exports = async function (context, message) {
   const event = message
@@ -12,6 +12,5 @@ module.exports = async function (context, message) {
     }
   } catch (error) {
     context.log.error('Unable to process message:', error)
-    throw error
   }
 }

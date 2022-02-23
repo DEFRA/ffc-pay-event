@@ -13,4 +13,4 @@ const saveProjection = (context, event) => {
   context.bindings.outputSbTopic = { id: event.id }
 }
 
-module.exports = checkCreateProjection
+module.exports = { checkCreateProjection }

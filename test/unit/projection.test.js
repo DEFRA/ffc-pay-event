@@ -1,4 +1,4 @@
-const checkCreateProjection = require('../../app/projection')
+const { checkCreateProjection } = require('../../app/projection')
 const mockContext = require('../mock-context')
 
 describe('Projection function', () => {
@@ -7,7 +7,7 @@ describe('Projection function', () => {
   })
 
   afterEach(async () => {
-    jest.clearAllMocks()
+    jest.resetAllMocks()
   })
 
   test('No projection to be sent to outputSbTopic and outputSbTopic binding not called', async () => {

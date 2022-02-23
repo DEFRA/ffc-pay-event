@@ -1,4 +1,4 @@
-const sendMessage = require('../../app/signalr')
+const { sendMessage } = require('../../app/signalr')
 const mockContext = require('../mock-context')
 
 describe('Signalr function', () => {
@@ -11,7 +11,7 @@ describe('Signalr function', () => {
 
   afterEach(async () => {
     process.env = DEFAULT_ENV
-    jest.clearAllMocks()
+    jest.resetAllMocks()
   })
 
   test('Send message to signalr binding called', async () => {

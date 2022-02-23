@@ -34,4 +34,4 @@ const queryEntities = async (partitionKey, rowKey) => {
   return events
 }
 
-module.exports = queryEntities
+module.exports = { queryEntities }

@@ -1,5 +1,5 @@
-const checkCreateProjection = require('./projection')
-const queryEntities = require('./storage')
+const { checkCreateProjection } = require('./projection')
+const { queryEntities } = require('./storage')
 
 const saveEvent = async (context, event) => {
   const raisedEvent = event.properties
@@ -29,4 +29,4 @@ const saveEvent = async (context, event) => {
   context.bindings.tableBinding.push(eventLog)
 }
 
-module.exports = saveEvent
+module.exports = { saveEvent }
