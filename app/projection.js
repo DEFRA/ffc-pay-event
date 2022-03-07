@@ -1,6 +1,6 @@
 const checkCreateProjection = (context, raisedEvent) => {
   let createProjection = false
-  createProjection = raisedEvent.action?.type === 'submission' || raisedEvent.action?.data?.error?.length > 0
+  createProjection = raisedEvent?.action?.type === 'submission' || raisedEvent?.action?.data?.error?.length > 0
   if (createProjection) {
     saveProjection(context, raisedEvent)
   }
