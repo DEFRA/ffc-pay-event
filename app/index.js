@@ -9,7 +9,7 @@ module.exports = async function (context, message) {
   //   if (validateEvent(event)) {
   //     await saveEvent(context, event)
   //     sendMessage(context, event)
-  //     context.done()
+  context.done()
   //   }
   // } catch (error) {
   //   context.log.error('Unable to process message:', error)
