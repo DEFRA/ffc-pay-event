@@ -7,27 +7,6 @@
       "topicName": "%PAY_EVENT_TOPIC%",
       "subscriptionName": "%PAY_EVENT_SUBSCRIPTION%",
       "connection": "AzureWebJobsAzureSBConnection"
-    },
-    {
-      "name": "outputSbTopic",
-      "type": "serviceBus",
-      "topicName": "%PAY_EVENT_PROJECTION_TOPIC%",
-      "connection": "AzureWebJobsAzureSBConnection",
-      "direction": "out"
-    },
-    {
-      "tableName": "%AZURE_STORAGE_TABLE%",
-      "connection": "TableConnectionString",
-      "name": "tableBinding",
-      "type": "table",
-      "direction": "out"
-    },
-    {
-      "type": "signalR",
-      "name": "signalRMessages",
-      "hubName": "serverless",
-      "connectionStringSetting": "SignalrConnectionString",
-      "direction": "out"
     }
   ]
 }
