@@ -7,6 +7,20 @@
       "topicName": "%PAY_EVENT_TOPIC%",
       "subscriptionName": "%PAY_EVENT_SUBSCRIPTION%",
       "connection": "AzureWebJobsAzureSBConnection"
+    },
+    {
+      "name": "outputSbTopic",
+      "type": "serviceBus",
+      "direction": "out",
+      "topicName": "%PAY_EVENT_PROJECTION_TOPIC%",
+      "connection": "AzureWebJobsAzureSBConnection"
+    },
+    {
+      "tableName": "%AZURE_STORAGE_TABLE%",
+      "connection": "TableConnectionString",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
     }
   ]
 }

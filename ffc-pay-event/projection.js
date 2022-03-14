@@ -1,5 +1,6 @@
 const checkCreateProjection = (context, raisedEvent) => {
   let createProjection = false
+  context.log.info(`Check if projection required: ${raisedEvent}`)
   createProjection = raisedEvent?.action?.type === 'submission' || raisedEvent?.action?.data?.error?.length > 0
   if (createProjection) {
     saveProjection(context, raisedEvent)
