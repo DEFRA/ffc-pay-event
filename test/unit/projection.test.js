@@ -1,4 +1,4 @@
-const { checkCreateProjection } = require('../../app/projection')
+const { checkCreateProjection } = require('../../ffc-pay-event/projection')
 const mockContext = require('../mock-context')
 
 describe('Projection function', () => {

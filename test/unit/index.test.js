@@ -1,8 +1,8 @@
-jest.mock('../../app/event')
-const mockEvent = require('../../app/event')
-jest.mock('../../app/signalr')
-const mockSignalR = require('../../app/signalr')
-const processEvent = require('../../app/index')
+jest.mock('../../ffc-pay-event/event')
+const mockEvent = require('../../ffc-pay-event/event')
+jest.mock('../../ffc-pay-event/signalr')
+const mockSignalR = require('../../ffc-pay-event/signalr')
+const processEvent = require('../../ffc-pay-event/index')
 const mockContext = require('../mock-context')
 
 describe('index function', () => {

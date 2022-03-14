@@ -4,7 +4,7 @@
 
 module.exports = async function (context, message) {
   const event = message
-  console.log(`Received event: ${JSON.stringify(event)}!!!!!!!!!!!`)
+  context.log.info(`Received event: ${JSON.stringify(event)}!!!!!!!!!!!`)
   // try {
   //   if (validateEvent(event)) {
   //     await saveEvent(context, event)

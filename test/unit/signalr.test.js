@@ -1,4 +1,4 @@
-const { sendMessage } = require('../../app/signalr')
+const { sendMessage } = require('../../ffc-pay-event/signalr')
 const mockContext = require('../mock-context')
 
 describe('Signalr function', () => {

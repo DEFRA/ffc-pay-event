@@ -1,8 +1,8 @@
-jest.mock('../../app/projection')
-const mockProjection = require('../../app/projection')
-jest.mock('../../app/storage')
-const mockStorage = require('../../app/storage')
-const { saveEvent } = require('../../app/event')
+jest.mock('../../ffc-pay-event/projection')
+const mockProjection = require('../../ffc-pay-event/projection')
+jest.mock('../../ffc-pay-event/storage')
+const mockStorage = require('../../ffc-pay-event/storage')
+const { saveEvent } = require('../../ffc-pay-event/event')
 const mockContext = require('../mock-context')
 
 describe('Event function', () => {
