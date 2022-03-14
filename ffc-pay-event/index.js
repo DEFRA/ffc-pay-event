@@ -1,5 +1,5 @@
 const { saveEvent } = require('./event')
-// const { sendMessage } = require('./signalr')
+const { sendMessage } = require('./signalr')
 const { validateEvent } = require('./event-schema')
 
 module.exports = async function (context, message) {
@@ -9,7 +9,7 @@ module.exports = async function (context, message) {
     if (validateEvent(event)) {
       context.log.info('Event validated successfully')
       await saveEvent(context, event)
-      // sendMessage(context, event)
+      sendMessage(context, event)
       context.done()
     }
   } catch (error) {

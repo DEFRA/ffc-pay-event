@@ -21,6 +21,13 @@
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "serverless",
+      "connectionStringSetting": "signalrConnectionString",
+      "direction": "out"
     }
   ]
 }
