@@ -1,5 +1,5 @@
-const { sendMessage } = require('../../ffc-pay-event/signalr')
-const mockContext = require('../mock-context')
+const { sendMessageToSignalR } = require('../ffc-pay-event/signalr')
+const mockContext = require('./mock-context')
 
 describe('Signalr function', () => {
   const DEFAULT_ENV = process.env
@@ -22,7 +22,7 @@ describe('Signalr function', () => {
       }
     }
 
-    await sendMessage(mockContext, message)
+    await sendMessageToSignalR(mockContext, message)
     expect(mockContext.bindings).toHaveProperty('signalRMessages')
   })
 
@@ -34,7 +34,7 @@ describe('Signalr function', () => {
       }
     }
 
-    await sendMessage(mockContext, message)
+    await sendMessageToSignalR(mockContext, message)
     expect(mockContext.bindings).toHaveProperty('signalRMessages')
   })
 })

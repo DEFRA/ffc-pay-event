@@ -1,4 +1,4 @@
-const sendMessage = (context, message) => {
+const sendMessageToSignalR = (context, message) => {
   if (process.env.USE_SIGNALR) {
     context.log.info('signalR event sent')
     context.bindings.signalRMessages = [{
@@ -8,4 +8,4 @@ const sendMessage = (context, message) => {
   }
 }
 
-module.exports = { sendMessage }
+module.exports = { sendMessageToSignalR }

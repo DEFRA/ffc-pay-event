@@ -1,5 +1,5 @@
-const { checkCreateProjection } = require('../../ffc-pay-event/projection')
-const mockContext = require('../mock-context')
+const { checkCreateProjection } = require('../ffc-pay-event/projection')
+const mockContext = require('./mock-context')
 
 describe('Projection function', () => {
   beforeEach(() => {
