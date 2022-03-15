@@ -4,6 +4,12 @@ Event processing for FFC Pay
 > An [Azure Function app](https://azure.microsoft.com/en-gb/services/functions/)
 > for consuming events from the payment services
 
+## Prerequisites
+
+- Node.js 16+
+- access to an Azure blob storage account (see options below)
+- [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Ccsharp%2Cportal%2Cbash)
+
 ## Function Development
 
 The best place to start for an overall view of how JavaScript Functions work in
@@ -19,12 +25,31 @@ The documentation within this repo assumes the `command line` setup has been
 completed, specifically for
 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
+## Azure Storage
+
+To support local development of Azure blob storage, there are several options:
+
+1. Use the Docker Compose file in this repository (recommended).
+
+Running the below command will run an Azurite container.
+
+`docker-compose up -d`
+
+2. Install Azurite locally
+
+See [Microsoft's guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio) for information.
+
+3. Use Azure cloud hosted storage
+
+If any option other than `1` is taken, then the connection strings in `local.settings.json` will need to be updated.
+
 ## Running Locally
 
-To start the function app run `func start` or `npm run start` (which just runs
-`func start`).
+`npm start`
 
-To start the function app tests `npm run test`.
+### Running tests
+
+`npm run test` or `npm run test:watch` to run with file watching to support Test Driven Development (TDD)
 
 ## Service Bus
 
