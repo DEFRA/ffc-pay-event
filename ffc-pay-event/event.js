@@ -28,7 +28,7 @@ const saveEvent = async (context, event) => {
   context.bindings.tableBinding = []
   context.bindings.tableBinding.push(eventLog)
 
-  context.log.info(`Event saved successfully: ${JSON.stringify(eventLog)}`)
+  context.log.info(`Event saved successfully: partitionKey: ${partitionKey}, rowKey: ${rowKey}`)
 }
 
 module.exports = { saveEvent }
