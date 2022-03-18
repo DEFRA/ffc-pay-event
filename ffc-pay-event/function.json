@@ -1,0 +1,33 @@
+{
+  "bindings": [
+    {
+      "name": "message",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "topicName": "%PAY_EVENT_TOPIC%",
+      "subscriptionName": "%PAY_EVENT_SUBSCRIPTION%",
+      "connection": "ServiceBusConnectionString"
+    },
+    {
+      "name": "outputSbTopic",
+      "type": "serviceBus",
+      "direction": "out",
+      "topicName": "%PAY_EVENT_PROJECTION_TOPIC%",
+      "connection": "ServiceBusConnectionString"
+    },
+    {
+      "tableName": "%AZURE_STORAGE_TABLE%",
+      "connection": "TableConnectionString",
+      "name": "tableBinding",
+      "type": "table",
+      "direction": "out"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "serverless",
+      "connectionStringSetting": "signalrConnectionString",
+      "direction": "out"
+    }
+  ]
+}
