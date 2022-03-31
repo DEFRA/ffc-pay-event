@@ -9,8 +9,9 @@ const checkCreateProjection = (context, raisedEvent) => {
 }
 
 const saveProjection = (context, event) => {
-  context.log.info(`Creating projection for ${event.id}`)
-  context.bindings.outputSbTopic = { id: event.id }
+  const frn = event?.action?.data?.paymentRequest?.frn ?? event?.action?.data?.frn
+  context.log.info(`Creating projection for ${event.id} with frn ${frn}`)
+  context.bindings.outputSbTopic = { id: event.id, frn }
 }
 
 module.exports = { checkCreateProjection }

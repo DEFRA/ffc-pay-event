@@ -2,7 +2,9 @@ const { checkCreateProjection } = require('./projection')
 const { queryEntities } = require('./storage')
 
 const saveEvent = async (context, event) => {
+  const eventType = event.name
   const raisedEvent = event.properties
+  const eventRaised = new Date(raisedEvent.action.timestamp)
   const timespan = new Date(raisedEvent.action.timestamp).getTime()
   const createProjection = await checkCreateProjection(context, raisedEvent)
 
@@ -19,7 +21,8 @@ const saveEvent = async (context, event) => {
   const eventLog = {
     PartitionKey: partitionKey,
     RowKey: rowKey,
-    EventType: raisedEvent.action.type,
+    EventType: eventType,
+    EventRaised: eventRaised,
     CreateProjection: createProjection,
     Payload: JSON.stringify(raisedEvent.action),
     Status: event.properties.status
