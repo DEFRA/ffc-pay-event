@@ -11,7 +11,7 @@
     "AZURE_STORAGE_TABLE": "",
     "USE_SIGNALR": "true",
     "PAY_EVENT_TOPIC": "ffc-pay-event",
-    "PAY_EVENT_SUBSCRIPTION": "ffc-pay-event-response",
+    "PAY_EVENT_SUBSCRIPTION": "ffc-pay-event",
     "PAY_EVENT_PROJECTION_TOPIC": "ffc-pay-event-projection"
   }
 }
