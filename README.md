@@ -9,10 +9,12 @@ Event processing for FFC Pay
 - Node.js 16+
 - access to an Azure blob storage account (see options below)
 - [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=v4%2Clinux%2Ccsharp%2Cportal%2Cbash)
+- Configure `.local.settings.json` to include live connection strings and keys for service as required
+- Rename `.local.settings.json` to `local.settings.json`
 
 ## Function Development
 
-The best place to start for an overall view of how JavaScript Functions work in
+The best place to start for an overall view of how JavaScript Functions work in 
 Azure is the
 [Azure Functions JavaScript developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=v2).
 From there follow the appropriate link to the documentation specific to
