@@ -12,6 +12,7 @@
     "USE_SIGNALR": "true",
     "PAY_EVENT_TOPIC": "ffc-pay-event",
     "PAY_EVENT_SUBSCRIPTION": "ffc-pay-event",
-    "PAY_EVENT_PROJECTION_TOPIC": "ffc-pay-event-projection"
+    "PAY_EVENT_PROJECTION_TOPIC": "ffc-pay-event-projection",
+    "PAY_EVENT_ALERTS": "ffc-pay-alerts"
   }
 }

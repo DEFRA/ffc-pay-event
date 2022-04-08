@@ -16,6 +16,13 @@
       "connection": "ServiceBusConnectionString"
     },
     {
+      "name": "outputPayAlertTopic",
+      "type": "serviceBus",
+      "direction": "out",
+      "topicName": "%PAY_ALERTS_TOPIC%",
+      "connection": "ServiceBusConnectionString"
+    },
+    {
       "tableName": "%AZURE_STORAGE_TABLE%",
       "connection": "TableConnectionString",
       "name": "tableBinding",
