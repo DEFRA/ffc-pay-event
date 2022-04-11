@@ -14,7 +14,7 @@ Event processing for FFC Pay
 
 ## Function Development
 
-The best place to start for an overall view of how JavaScript Functions work in 
+The best place to start for an overall view of how JavaScript Functions work in
 Azure is the
 [Azure Functions JavaScript developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=v2).
 From there follow the appropriate link to the documentation specific to
@@ -67,7 +67,8 @@ If any option other than `1` is taken, then the connection strings in `local.set
 		"action": {
 			"type": "create",
 			"message": "Invoice created",
-			"timestamp": "17/02/2022"
+			"timestamp": "2022-02-22T15:00:00.000Z",
+			"data": {}
 		}
 	}
 }
