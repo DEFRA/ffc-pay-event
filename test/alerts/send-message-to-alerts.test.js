@@ -7,17 +7,17 @@ describe('Send message to alerts', () => {
   beforeEach(() => {
     jest.resetModules()
     mockEvent = {
-      name: 'Create Invoice',
+      name: 'test',
       properties: {
-        id: '1234567890',
-        checkpoint: 'acr-test-log-web',
-        status: 'in progress',
-        action:
-          {
-            type: 'create',
-            message: 'Invoice created',
-            timestamp: '17/02/2022'
-          }
+        id: '123456789',
+        checkpoint: 'test',
+        status: 'testing',
+        action: {
+          type: 'error',
+          message: 'test',
+          timestamp: new Date(),
+          data: {}
+        }
       }
     }
   })
