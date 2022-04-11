@@ -1,5 +1,5 @@
-const sendMessageToAlerts = require('./send-alerts')
+const sendAlert = require('./send-alert')
 
 module.exports = {
-  sendMessageToAlerts
+  sendAlert
 }

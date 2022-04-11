@@ -1,9 +1,9 @@
-const { sendMessageToAlerts } = require('../../ffc-pay-event/alerts')
+const sendMessageToAlerts = require('../../ffc-pay-event/alerts/send-message-to-alerts')
 const mockContext = require('../mock-context')
 
 let mockEvent
 
-describe('Send alerts function', () => {
+describe('Send message to alerts', () => {
   beforeEach(() => {
     jest.resetModules()
     mockEvent = {

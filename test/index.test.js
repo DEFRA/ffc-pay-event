@@ -5,26 +5,30 @@ jest.mock('../ffc-pay-event/signalr')
 const mockSignalR = require('../ffc-pay-event/signalr')
 
 jest.mock('../ffc-pay-event/alerts')
-const mockAlert = require('../ffc-pay-event/alerts')
+const mockAlerts = require('../ffc-pay-event/alerts')
 
 const processEvent = require('../ffc-pay-event/index')
 const mockContext = require('./mock-context')
 
+let message
+
 describe('index function', () => {
-  const message = {
-    name: 'test',
-    properties: {
-      id: '123456789',
-      checkpoint: 'test',
-      status: 'testing',
-      action: {
-        type: 'test',
-        message: 'test',
-        timestamp: new Date(),
-        data: {}
+  beforeEach(async () => {
+    message = {
+      name: 'test',
+      properties: {
+        id: '123456789',
+        checkpoint: 'test',
+        status: 'testing',
+        action: {
+          type: 'test',
+          message: 'test',
+          timestamp: new Date(),
+          data: {}
+        }
       }
     }
-  }
+  })
 
   afterEach(async () => {
     jest.resetAllMocks()
@@ -43,8 +47,8 @@ describe('index function', () => {
     expect(mockSignalR.sendMessageToSignalR).toHaveBeenCalledTimes(0)
   })
 
-  test('should call sendMessageToAlerts when a valid message is received', async () => {
+  test('should call sendAlert when a valid message is received', async () => {
     await processEvent(mockContext, message)
-    expect(mockAlert.sendMessageToAlerts).toHaveBeenCalled()
+    expect(mockAlerts.sendAlert).toHaveBeenCalled()
   })
 })
