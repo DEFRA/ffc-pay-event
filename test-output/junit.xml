@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="14" failures="1" errors="0" time="4.593">
+  <testsuite name="Send message to alerts" errors="0" failures="0" skipped="0" timestamp="2022-04-08T15:10:44" time="1.52" tests="2">
+    <testcase classname="Send message to alerts should call outputPayAlertTopic binding when sendMessageToAlerts is called" name="Send message to alerts should call outputPayAlertTopic binding when sendMessageToAlerts is called" time="0.004">
+    </testcase>
+    <testcase classname="Send message to alerts should push event to outputPayAlertTopic binding when sendMessageToAlerts is called" name="Send message to alerts should push event to outputPayAlertTopic binding when sendMessageToAlerts is called" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Projection function" errors="0" failures="0" skipped="0" timestamp="2022-04-08T15:10:45" time="1.526" tests="2">
+    <testcase classname="Projection function No projection to be sent to outputSbTopic and outputSbTopic binding not called" name="Projection function No projection to be sent to outputSbTopic and outputSbTopic binding not called" time="0.003">
+    </testcase>
+    <testcase classname="Projection function Send a projection to outputSbTopic and outputSbTopic binding called" name="Projection function Send a projection to outputSbTopic and outputSbTopic binding called" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Signalr function" errors="0" failures="0" skipped="0" timestamp="2022-04-08T15:10:45" time="1.522" tests="2">
+    <testcase classname="Signalr function Send message to signalr binding called" name="Signalr function Send message to signalr binding called" time="0.003">
+    </testcase>
+    <testcase classname="Signalr function Set to not send signar message" name="Signalr function Set to not send signar message" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="storage function" errors="0" failures="0" skipped="0" timestamp="2022-04-08T15:10:45" time="1.928" tests="2">
+    <testcase classname="storage function return 3 events" name="storage function return 3 events" time="0.004">
+    </testcase>
+    <testcase classname="storage function return 0 events as no partition key or row key is supplied" name="storage function return 0 events as no partition key or row key is supplied" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Event function" errors="0" failures="0" skipped="0" timestamp="2022-04-08T15:10:45" time="1.992" tests="3">
+    <testcase classname="Event function Save an event with no projection created" name="Event function Save an event with no projection created" time="0.004">
+    </testcase>
+    <testcase classname="Event function Duplicated event found created" name="Event function Duplicated event found created" time="0.001">
+    </testcase>
+    <testcase classname="Event function Save an event with a projection created" name="Event function Save an event with a projection created" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="index function" errors="0" failures="1" skipped="0" timestamp="2022-04-08T15:10:45" time="2.424" tests="3">
+    <testcase classname="index function receives message from service bus and successfully calls save and send message" name="index function receives message from service bus and successfully calls save and send message" time="0.003">
+    </testcase>
+    <testcase classname="index function receives message from service bus with invalid id and does not calls save and send message" name="index function receives message from service bus with invalid id and does not calls save and send message" time="0.008">
+    </testcase>
+    <testcase classname="index function should call sendAlert when a valid message is received" name="index function should call sendAlert when a valid message is received" time="0.004">
+      <failure>Error: expect(jest.fn()).toHaveBeenCalled()
+
+Expected number of calls: &gt;= 1
+Received number of calls:    0
+    at Object.&lt;anonymous&gt; (/Users/marcte/Documents/_Development/Defra/Payment/_repos/ffc-pay-event/test/index.test.js:48:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>
