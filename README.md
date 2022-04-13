@@ -1,8 +1,7 @@
-# ffc-pay-event
-Event processing for FFC Pay
+# FFC pay event
+FFC pay event to process events from the payment service to required services.
 
-> An [Azure Function app](https://azure.microsoft.com/en-gb/services/functions/)
-> for consuming events from the payment services
+This [Azure Function app](https://azure.microsoft.com/en-gb/services/functions/) is triggered from a service bus message requesting an event message.
 
 ## Prerequisites
 
@@ -12,20 +11,24 @@ Event processing for FFC Pay
 - Configure `.local.settings.json` to include live connection strings and keys for service as required
 - Rename `.local.settings.json` to `local.settings.json`
 
-## Function Development
+## Example message
 
-The best place to start for an overall view of how JavaScript Functions work in
-Azure is the
-[Azure Functions JavaScript developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=v2).
-From there follow the appropriate link to the documentation specific to
-your preferred development environment i.e.
-[Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node)
-or
-[command line](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-node?tabs=azure-cli%2Cbrowser).
-
-The documentation within this repo assumes the `command line` setup has been
-completed, specifically for
-[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
+```
+{
+	"name": "Create Invoice",
+	"properties": {
+		"id": "1234567890",
+		"checkpoint": "acr-test-log-web",
+		"status": "in progress",
+		"action": {
+			"type": "create",
+			"message": "Invoice created",
+			"timestamp": "2022-02-22T15:00:00.000Z",
+			"data": {}
+		}
+	}
+}
+```
 
 ## Azure Storage
 
@@ -45,61 +48,72 @@ See [Microsoft's guide](https://docs.microsoft.com/en-us/azure/storage/common/st
 
 If any option other than `1` is taken, then the connection strings in `local.settings.json` will need to be updated.
 
-## Running Locally
+## Configuration
 
-`npm start`
+The `local.settings.json` is required to hold all local development environment values. As this file contains sensitive values, it is excluded from source control. The `.local.settings.json` file is a template for this and needs amended to include valid information. 
+
+Example:
+
+For blob, examples assumes option `1` is taken above and therefore shows connection strings for local Azurite container.
+
+It's likely that the Service Bus topic and subscription names will need to be amended to match those owned by the developer.
+
+```
+
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10013/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10014/devstoreaccount1;",
+    "ServiceBusConnectionString": "",
+    "SignalrConnectionString": "",
+    "TableConnectionString": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://127.0.0.1:10015/devstoreaccount1",
+    "AZURE_STORAGE_USE_CONNECTION_STRING": "true",
+    "AZURE_STORAGE_ACCOUNT_NAME": "devstoreaccount1",
+    "AZURE_STORAGE_TABLE": "eventprojection",
+    "USE_SIGNALR": "true",
+    "PAY_EVENT_TOPIC": "ffc-pay-event",
+    "PAY_EVENT_SUBSCRIPTION": "ffc-pay-event",
+    "PAY_EVENT_PROJECTION_TOPIC": "ffc-pay-event-projection",
+    "PAY_ALERTS_TOPIC": "ffc-pay-alerts"
+  }
+}
+
+```
+
+## Running the application
+
+Use the convenience script, `./scripts/start`
 
 ### Running tests
 
-`npm run test` or `npm run test:watch` to run with file watching to support Test Driven Development (TDD)
-
-## Service Bus
-
-### Example event message
-
 ```
-{
-	"name": "Create Invoice",
-	"properties": {
-		"id": "1234567890",
-		"checkpoint": "acr-test-log-web",
-		"status": "in progress",
-		"action": {
-			"type": "create",
-			"message": "Invoice created",
-			"timestamp": "2022-02-22T15:00:00.000Z",
-			"data": {}
-		}
-	}
-}
+# Run all tests
+./scripts/test
+
+# Run tests with file watch
+./scripts/test -w
 ```
 
-## Configuration - Application Settings
+## Function Development
 
-Currently the deployment of application settings is manual and can be edited in either the Azure portal or via the Azure CLI
+The best place to start for an overall view of how JavaScript Functions work in
+Azure is the
+[Azure Functions JavaScript developer guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=v2).
+From there follow the appropriate link to the documentation specific to
+your preferred development environment i.e.
+[Visual Studio Code](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-vs-code-node)
+or
+[command line](https://docs.microsoft.com/en-us/azure/azure-functions/create-first-function-cli-node?tabs=azure-cli%2Cbrowser).
 
-### Example
+The documentation within this repo assumes the `command line` setup has been
+completed, specifically for
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Through the Azure CLI app settings can be set via the use of a json file
 
-settings.json
+## CI pipeline
 
-```
-[
-  {
-    "name": "AZURE_STORAGE_USE_CONNECTION_STRING",
-    "value": ""
-  }
-]
-```
-
-azure CLI command
-
-```
-az login
-
-az functionapp config appsettings set --name "$FUNCTION_APP_NAME" --resource-group "$RESOURCE_GROUP" --settings @settings.json
-```
+This service uses the [FFC CI pipeline](https://github.com/DEFRA/ffc-jenkins-pipeline-library)
 
 ## License
 
@@ -111,5 +125,10 @@ LICENCE found at:
 The following attribution statement MUST be cited in your products and
 applications when using this information.
 
-> Contains public sector information licensed under the Open Government license
-> v3
+> Contains public sector information licensed under the Open Government license v3
+
+### About the licence
+
+The Open Government Licence (OGL) was developed by the Controller of Her Majesty's Stationery Office (HMSO) to enable information providers in the public sector to license the use and re-use of their information under a common open licence.
+
+It is designed to encourage use and re-use of information freely and flexibly, with only a few conditions.
