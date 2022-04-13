@@ -4,7 +4,7 @@ info:
   version: '1.0.0'
 channels:
   event:
-    subscribe:
+    publish:
       message:
         $ref: '#/components/messages/SendEvent'
 components:
@@ -101,7 +101,7 @@ components:
                 accountCode:
                   type: string
                   description: Unique account code to pay from
-    SendRequest:
+    SendEvent:
       contentType: application/json
       payload:
         type: object
