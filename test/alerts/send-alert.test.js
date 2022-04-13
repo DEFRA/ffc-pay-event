@@ -1,4 +1,4 @@
-const sendAlert = require('../../ffc-pay-event/alerts/send-alert')
+const { sendAlert } = require('../../ffc-pay-event/alerts/send-alert')
 const mockContext = require('../mock-context')
 
 jest.mock('../../ffc-pay-event/alerts/check-if-alert')
