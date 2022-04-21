@@ -70,7 +70,7 @@ It's likely that the Service Bus topic and subscription names will need to be am
     "TableConnectionString": "DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://127.0.0.1:10015/devstoreaccount1",
     "AZURE_STORAGE_USE_CONNECTION_STRING": "true",
     "AZURE_STORAGE_ACCOUNT_NAME": "devstoreaccount1",
-    "AZURE_STORAGE_TABLE": "eventprojection",
+    "AZURE_STORAGE_TABLE": "payeventstore",
     "USE_SIGNALR": "true",
     "PAY_EVENT_TOPIC": "ffc-pay-event",
     "PAY_EVENT_SUBSCRIPTION": "ffc-pay-event",
