@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-event",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Azure Function to process pay events",
   "author": "Defra",
   "contributors": [
@@ -10,6 +10,8 @@
   "scripts": {
     "lint": "standard",
     "start": "func start -p 7080",
+    "start:detached": "func start -p 7080 &",
+    "start:verbose": "func start -p 7080 --verbose",
     "test": "jest",
     "test:watch": "jest --coverage=false --onlyChanged --watch"
   },
