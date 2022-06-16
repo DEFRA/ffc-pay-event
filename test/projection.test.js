@@ -23,11 +23,30 @@ describe('Projection function', () => {
     expect(mockContext.bindings).not.toHaveProperty('outputSbTopic')
   })
 
-  test('Send a projection to outputSbTopic and outputSbTopic binding called', async () => {
+  test('Does not send a projection to outputSbTopic and outputSbTopic binding called if no mandatory data', async () => {
     const message = {
       id: '123456789',
       action: {
         type: 'submission'
+      }
+    }
+
+    checkCreateProjection(mockContext, message)
+    expect(mockContext.bindings).not.toHaveProperty('outputSbTopic')
+  })
+
+  test('Send a projection to outputSbTopic and outputSbTopic binding called if mandatory data', async () => {
+    const message = {
+      id: '123456789',
+      action: {
+        type: 'submission',
+        data: {
+          paymentRequest: {
+            frn: 1234567890,
+            paymentRequestNumber: 1,
+            agreementNumber: 'SIP123456789012345'
+          }
+        }
       }
     }
 
