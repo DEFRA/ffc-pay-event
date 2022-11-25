@@ -7,7 +7,7 @@ const saveEvent = async (context, event) => {
   const raisedEvent = event.properties
   const eventRaised = new Date(raisedEvent.action.timestamp)
   const timespan = new Date(raisedEvent.action.timestamp).getTime()
-  const createProjection = await checkCreateProjection(context, raisedEvent)
+  const createProjection = checkCreateProjection(context, raisedEvent)
 
   const partitionKey = raisedEvent.id.toString()
   let rowKey = `${raisedEvent.id}_${timespan}`
