@@ -1,4 +1,5 @@
 const { checkCreateProjection } = require('./projection')
+const saveProjection = require('./save-projection')
 const { queryEntities } = require('./storage')
 
 const saveEvent = async (context, event) => {
@@ -30,6 +31,10 @@ const saveEvent = async (context, event) => {
 
   context.bindings.tableBinding = []
   context.bindings.tableBinding.push(eventLog)
+
+  if (createProjection) {
+    saveProjection(context, raisedEvent)
+  }
 
   context.log.info(`Event saved successfully: partitionKey: ${partitionKey}, rowKey: ${rowKey}`)
 }
