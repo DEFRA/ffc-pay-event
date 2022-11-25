@@ -1,13 +1,14 @@
 {
   "name": "ffc-pay-event",
-  "version": "2.1.8",
+  "version": "2.1.9",
   "description": "Azure Function to process pay events",
   "author": "Defra",
   "contributors": [
     "Steve Dickinson <steve.dickinson@defra.gov.uk>",
     "Marc Templeton <m.templeton@kainos.com>",
     "Simon Dunn <simon.dunn1@defra.gov.uk>",
-    "Callum Leighton <callum.leighton@kainos.com"
+    "Callum Leighton <callum.leighton@kainos.com",
+    "John Watson <john.watson2@rpa.gov.uk>"
   ],
   "scripts": {
     "lint": "standard",
@@ -19,15 +20,15 @@
     "pretest": "npm run lint"
   },
   "dependencies": {
-    "@azure/data-tables": "^13.0.1",
-    "@azure/identity": "^2.0.2",
-    "joi": "^17.4.1"
+    "@azure/data-tables": "13.0.1",
+    "@azure/identity": "2.0.2",
+    "joi": "17.4.1"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.0",
-    "jest": "^26.6.3",
-    "jest-junit": "^13.0.0",
-    "standard": "^16.0.3"
+    "@types/jest": "27.0.0",
+    "jest": "26.6.3",
+    "jest-junit": "13.0.0",
+    "standard": "16.0.3"
   },
   "homepage": "https://github.com/DEFRA/ffc-pay-event",
   "repository": {
