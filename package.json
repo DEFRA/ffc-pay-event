@@ -1,6 +1,6 @@
 {
   "name": "ffc-pay-event",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "Azure Function to process pay events",
   "author": "Defra",
   "contributors": [
